@@ -1,0 +1,266 @@
+#create_schedule_modal form,
+#onlineConsultationModal form {
+  max-height: 88vh;
+}
+
+.xdsoft_datetimepicker {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker .xdsoft_label {
+  text-align: left;
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker button {
+  display: none;
+}
+
+.xdsoft_datetimepicker .xdsoft_datepicker {
+  width: 452px;
+}
+
+@media (max-width: 992px) {
+  .xdsoft_datetimepicker .xdsoft_datepicker {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.xdsoft_datetimepicker .xdsoft_datepicker tbody td.xdsoft_current,
+.xdsoft_datetimepicker .xdsoft_datepicker tbody td:hover,
+.xdsoft_datetimepicker .xdsoft_datepicker tbody td.xdsoft_highlighted_default {
+  background: #4285f4 !important;
+  color: #fff;
+  font-weight: 400;
+  box-shadow: none !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_datepicker tbody td.xdsoft_current {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  opacity: .75;
+}
+
+.xdsoft_datetimepicker .xdsoft_datepicker tbody td div {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+@media (max-width: 992px) {
+  .xdsoft_datetimepicker .xdsoft_datepicker tbody td div {
+    padding: initial;
+    text-align: center;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    font-size: 14px;
+  }
+}
+
+*:not(input, textarea) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#create_schedule_modal .form-fields,
+#onlineConsultationModal .form-fields,
+#reception_modal .form-fields {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 992px) {
+  #create_schedule_modal .form-fields,
+  #onlineConsultationModal .form-fields,
+  #reception_modal .form-fields {
+    flex-direction: column;
+  }
+}
+
+.create_schedule .xdsoft_monthpicker {
+  z-index: 102;
+}
+
+.create_schedule .xdsoft_datetimepicker .xdsoft_datepicker {
+  width: 100%;
+}
+
+.create_schedule .xdsoft_datetimepicker .xdsoft_datepicker .xdsoft_date {
+  padding: 10px;
+}
+
+@media (max-width: 992px) {
+  .create_schedule .xdsoft_datetimepicker .xdsoft_datepicker .xdsoft_date {
+    padding: 4px;
+  }
+}
+
+.create_schedule .xdsoft_datetimepicker .xdsoft_datepicker .xdsoft_date div {
+  font-size: 22px;
+}
+
+@media (max-width: 992px) {
+  .create_schedule .xdsoft_datetimepicker .xdsoft_datepicker .xdsoft_date div {
+    font-size: 14px;
+  }
+}
+
+#create_schedule_modal .select_time {
+  width: 100%;
+}
+
+#create_schedule_modal .select_time #times_list,
+#create_schedule_modal .select_time #times_list_reception {
+  padding: 0 0 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 243px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+#create_schedule_modal .select_time #times_list .time,
+#create_schedule_modal .select_time #times_list_reception .time {
+  width: 54px;
+  height: auto;
+  padding: 2px 4px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin: 0 5px 5px 0;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#create_schedule_modal .select_time #times_list .time.active,
+#create_schedule_modal .select_time #times_list_reception .time.active {
+  color: #fff;
+  background: #4285f4;
+}
+
+@media (max-width: 992px) {
+  #create_schedule_modal .select_time #times_list .time,
+  #create_schedule_modal .select_time #times_list_reception .time {
+    font-size: 14px;
+  }
+}
+
+#onlineConsultationModal .select_time,
+#reception_modal .select_time {
+  width: 100%;
+}
+
+#onlineConsultationModal .calendar_field {
+  flex-direction: column;
+}
+
+#onlineConsultationModal .calendar_field .select_time {
+  margin-bottom: 40px;
+}
+
+#onlineConsultationModal .xdsoft_time_box,
+#reception_modal .xdsoft_time_box {
+  border: 0;
+  height: auto !important;
+  overflow: auto !important;
+}
+
+#onlineConsultationModal .xdsoft_timepicker,
+#reception_modal .xdsoft_timepicker {
+  padding: 0;
+}
+
+#onlineConsultationModal .xdsoft_prev,
+#onlineConsultationModal .xdsoft_next,
+#onlineConsultationModal .xdsoft_scrollbar,
+#reception_modal .xdsoft_prev,
+#reception_modal .xdsoft_next,
+#reception_modal .xdsoft_scrollbar {
+  display: none !important;
+}
+
+#onlineConsultationModal .xdsoft_timepicker,
+#reception_modal .xdsoft_timepicker {
+  width: 100%;
+}
+
+#reception_modal .xdsoft_timepicker .xdsoft_time_variant {
+  padding: 0 0 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 243px;
+  margin-top: 30px !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#onlineConsultationModal .xdsoft_timepicker {
+  margin: 0;
+}
+
+#onlineConsultationModal .xdsoft_timepicker .xdsoft_time_variant {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 243px;
+  margin-top: 5px !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#onlineConsultationModal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time,
+#reception_modal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time {
+  width: 54px;
+  height: auto;
+  padding: 2px 4px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin: 0 5px 5px 0;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#onlineConsultationModal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time.xdsoft_current,
+#reception_modal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time.xdsoft_current {
+  color: #fff !important;
+  background: #4285f4 !important;
+}
+
+#onlineConsultationModal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time:hover,
+#reception_modal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time:hover {
+  color: #fff !important;
+  background: #4285f4 !important;
+}
+
+#onlineConsultationModal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time.active,
+#reception_modal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time.active {
+  color: #fff;
+  background: #4285f4;
+}
+
+@media (max-width: 992px) {
+  #onlineConsultationModal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time,
+  #reception_modal .xdsoft_timepicker .xdsoft_time_variant .xdsoft_time {
+    font-size: 14px;
+  }
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_other_month,
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled {
+  cursor: pointer;
+  opacity: .3;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td,
+.xdsoft_datetimepicker .xdsoft_calendar th {
+  background: #f9f9f9b3;
+}
+

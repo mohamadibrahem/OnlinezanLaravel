@@ -1,0 +1,66 @@
+Mime-Version: 1.0
+Content-Base: http://kz1430/interpretations
+Content-Type: Multipart/related; boundary="NEXT.ITEM-BOUNDARY";type="text/html"
+
+--NEXT.ITEM-BOUNDARY
+Content-Type: text/html; charset="utf-8"
+Content-Location: http://kz1430/interpretations
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+
+</style>
+</head>
+<body>
+               <div class="header">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-4">
+                           <img src="http://kz1430/img/logo1.png" style="width: 221px;text-align: left;" alt="" width="0" height="0">
+                        </div>
+                        <div class="col-md-8" style="text-align: right;padding: 50px 0px;">
+                           <h3 style="font-weight: 800;">Медицинский сервис 1430</h3>
+                           <h5 style="font-weight: 400;">Онлайн консультации врачей<br>
+                              www.1430.kz</h5>
+                           </div>
+                        </div>
+                        <div style="border-top: 5px double black;border-bottom: 1px solid black;text-align: center!important;margin:0px -15px">
+                           <div>
+                              <p style="font-weight:500;margin:10px 0px!important;">ТОО «1430.kz», Республика Казахстан, г. Нур-Султан, ул. Бараева 25, ВП-1</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bodys">
+                     <div class="container">
+
+                        <div style="text-align: center;margin-top:30px;">
+                           <h3 style="font-weight: 800;">ПРОТОКОЛ</h3>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
+                           <p style="font-weight:800;">Ф.И.О (Исполнитель):</p>&nbsp;&nbsp;<p class="docname">Доктор Тестовый</p>
+                        </div>
+                        <div class="row">
+                           <p style="font-weight:800;">Ф.И.О (Пациент):</p>&nbsp;&nbsp;<p class="patname">Шалдыбаев Ержан</p>
+                        </div>
+                        <div class="row">
+                           <p style="font-weight:800;text-transform: uppercase;">Область исследования:</p>&nbsp;&nbsp;<p class="type">Расшифровка анализов</p>
+                        </div>
+                        <div class="row">
+                           <p style="font-weight:800;text-transform: uppercase;">Заключение:</p>&nbsp;&nbsp;
+                                                                                                                                                                              <textarea class="col form-control answer">224234</textarea>
+                                                                                 </div>
+                     </div>
+                  </div>
+               </body></html>
+--NEXT.ITEM-BOUNDARY
+Content-Location: http://kz1430/img/logo1.png
+Content-Type: data:
+Content-Transfer-Encoding: data:
+
+
+
+--NEXT.ITEM-BOUNDARY--

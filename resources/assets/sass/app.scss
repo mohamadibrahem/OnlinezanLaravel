@@ -1,0 +1,710 @@
+.inner_page{
+   min-height: calc(100vh - 895px);
+   .content-profile{
+      margin: 40px 0;
+   }
+}
+.hidden{
+   display: none!important;
+}
+
+// Just for styling
+
+.switch_wrapper{
+   * {
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', sans-serif;
+   }
+
+   body {
+      background-color: black;
+   }
+
+   $primary-color: #005aad;
+
+   .radio-tile-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+
+      //set dimensions for invisible container
+      .input-container {
+         position: relative;
+         margin: 0.5rem;
+
+         //make actual radio input invisible
+         // + stretch to fill container
+         .radio-button {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            cursor: pointer;
+         }
+
+         //default tile styles
+         .radio-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border: 2px solid $primary-color;
+            border-radius: 5px;
+            padding: 1rem;
+            transition: transform 300ms ease;
+         }
+
+         .radio-tile-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $primary-color;
+            margin-bottom: 0;
+         }
+
+         //active tile styles
+         .radio-button:checked + .radio-tile {
+            background-color: $primary-color;
+            border: 2px solid $primary-color;
+            color: white;
+            transform: scale(1.1, 1.1);
+
+            .radio-tile-label {
+               color: white;
+               background-color: $primary-color;
+            }
+         }
+      }
+   }
+}
+
+
+#navbarsExample04{
+   li{
+      a{
+         padding: 5px;
+         font-size: 15px;
+      }
+   }
+   .social{
+      @media(max-width: 992px){
+         text-align: right;
+      }
+      .inst, .faceb{
+         display: flex;
+         align-items: center;
+         @media(max-width: 992px){
+            display: none;
+         }
+      }
+   }
+}
+
+
+.content-profile{
+
+   #myTab{
+      li{
+         a{
+            padding: 5px;
+         }
+      }
+   }
+   .profile-img{
+      overflow: hidden;
+   }
+   #tab_2>.row, #tab_4>.row{
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 0 2px 2px rgba(0,0,0,.1);
+      border-radius: 4px;
+      position: relative;
+      .btn-danger{
+         position: absolute;
+         top: 0;
+         right: 0;
+      }
+      .btn-success{
+         position: absolute;
+         bottom: 0;
+         right: 0;
+      }
+   }
+}
+
+
+.input-container{
+   opacity: .3;
+   &.checked{
+      opacity: 1;
+   }
+}
+
+#app{
+   width: 100%;
+   position: relative;
+   padding: 20px 0;
+   #videoCallSubmit, #appointment_finish, #videoCallUpdate{
+      font-size: 16px;
+      margin-right: 15px;
+      border: 1px solid #808080;
+      margin: 0 15px 15px 0;
+      span{
+         margin: 0 10px;
+      }
+   }
+   .videochat_component{
+      margin-top: 20px;
+   }
+   .buttons.items{
+      margin-top: 30px;
+      button{
+         margin-right: 20px;
+      }
+   }
+
+
+   .chat-section{
+      padding-right: 0;
+      margin-top: 10px;
+      width: calc(100% - 20px);
+
+      .panel-body{
+         display: none;
+         height: 220px;
+         overflow: scroll;
+      }
+      .panel-footer{
+         display: none;
+      }
+      .panel-heading{
+         .pull-right{
+            font-size: 12px;
+            float: right;
+         }
+      }
+      .panel-primary{
+         border-color:#3097D1;
+      }
+      @media only screen and (max-width: 768px) {
+         width: 100%;
+         .panel-heading{
+            padding: 10px;
+            width: calc(100% - 10px);
+            button{
+               font-size: 12px;
+            }
+         }
+      }
+      .panel{
+         margin: 0;
+      }
+   }
+   .video-section{
+      width: 100%;
+      video{
+         height: 260px;
+         position: relative;
+         z-index: 20;
+      }
+      &>div{
+         display: flex;
+         flex-direction: row;
+         @media only screen and (max-width: 768px) {
+            flex-direction: column;
+         }
+         &>div{
+            width: 50%;
+            @media only screen and (max-width: 768px) {
+               width: 100%;
+            }
+         }
+      }
+   }
+   @media only screen and (max-width: 768px) {
+      .panel-heading{
+         overflow: hidden;
+         span{
+            display: none;
+         }
+      }
+      width: 100%;
+      &>div .row{
+         display: flex;
+         flex-direction: column-reverse;
+      }
+   }
+
+   .form.report{
+      margin-top: 40px;
+   }
+   form.col-md-6{
+      padding: 0;
+   }
+
+
+   .videoUser{
+      position: relative;
+
+      video{
+         width: 100%;
+         background: #303030;
+         border-radius: 6px;
+      }
+   }
+   .videoRemote{
+      position: relative;
+      margin-left: 10px;
+      position: relative;
+      .status_doctor{
+         z-index: 0;
+         width: 100%;
+         height: 100%;
+         background: url('/images/doctor.png')no-repeat center center;
+         background-size: 180px;
+         opacity: .7;
+      }
+      .status_patient{
+         z-index: 0;
+         width: 100%;
+         height: 100%;
+         background: url('/images/user.png')no-repeat center center;
+         background-size: 180px;
+         opacity: .7;
+      }
+      @media only screen and (max-width: 768px) {
+         margin: 0;
+         margin-top: 10px;
+      }
+      // .title{
+      //   width: 100%;
+      //   height: 100%;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   z-index: -1;
+      //   position: absolute;
+      //   font-size: 20px;
+      //   color: #19bdbd;
+      //   letter-spacing: 1px;
+      // }
+      &.active{
+         width: 100%;
+         height: 100vh;
+         z-index: 1000;
+         top: 0;
+         left: 0;
+         position: fixed;
+         overflow: hidden;
+         background: #fff;
+         padding:29px;
+         margin: 0;
+         video{
+            height: 100%;
+            width: auto;
+            margin: 0 auto;
+            max-height: 100vh;
+            border: 0;
+         }
+      }
+      video{
+         background: #303030;
+         width: 100%;
+         border-radius: 6px;
+         // max-height: 254px;
+      }
+   }
+   .control-panel{
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 8px;
+      width: 100%;
+   }
+   .fullscreen{
+      background: #19bdbd;
+      color: #fff;
+      border: 1px solid #19bdbd;
+      border-radius: 4px;
+   }
+   .rangecontainer {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      .title{
+         background: #19bdbd;
+         color: #fff;
+         border-radius: 4px;
+         font-size: 12px;
+         padding: 0 4px;
+      }
+   }
+
+   /* The slider itself */
+   .range {
+      -webkit-appearance: none;  /* Override default CSS styles */
+      appearance: none;
+      background: #d3d3d3; /* Grey background */
+      outline: none; /* Remove outline */
+      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+      transition: opacity .2s;
+      width: 100px;
+      height: 10px;
+      border-radius: 10px;
+   }
+
+   /* Mouse-over effects */
+   .range:hover {
+      opacity: 1; /* Fully shown on mouse-over */
+   }
+
+   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+   .range::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 15px; /* Set a specific slider handle width */
+      height: 15px; /* Slider handle height */
+      background: #19bdbd;
+      cursor: pointer; /* Cursor on hover */
+      border-radius: 10px;
+   }
+
+   .range::-moz-range-thumb {
+      border-radius: 10px;
+      width: 15px; /* Set a specific slider handle width */
+      height: 15px; /* Slider handle height */
+      background: #19bdbd;
+      cursor: pointer; /* Cursor on hover */
+   }
+
+}
+
+
+.content-news{
+   .items {
+      .item{
+         margin: 20px 0;
+         display: flex;
+         flex-direction: column;
+         border-bottom: 1px solid #606060;
+         padding-bottom: 20px;
+         .title{
+            margin-bottom: 20px;
+         }
+
+         .link{
+            float: right;
+         }
+      }
+   }
+}
+
+.content-contracts{
+   .items {
+      .item{
+         margin: 20px 0;
+         display: flex;
+         flex-direction: column;
+         padding-bottom: 20px;
+         background: #fff;
+         box-shadow: 0 0 2px 2px rgba(0,0,0,.1);
+         padding: 20px;
+         border-radius: 10px;
+         .title{
+            margin-bottom: 20px;
+         }
+
+         .link{
+            float: right;
+         }
+      }
+   }
+}
+
+.info-contact-header{
+   li.consultaion{
+      *{
+         cursor: pointer;
+      }
+   }
+}
+
+.content-service, .content-jurist{
+   .items {
+      .item{
+         .image{
+            border-radius: 100%;
+            width: 170px;
+            height: 170px;
+            overflow: hidden;
+         }
+      }
+   }
+}
+body > .navbar-collapse .nav-image .image{
+   border-radius: 100%;
+   width: 90px;
+   height: 90px;
+   overflow: hidden;
+   margin: 0 auto;
+}
+
+
+#consultation_detail{
+   .file.item{
+      display: flex;
+      justify-content: space-between;
+      .buttons-w{
+         display: flex;
+         flex-direction: row;
+      }
+   }
+}
+
+.inner_page{
+   .content-application_consultations{
+      hr{
+         margin: 5px 0;
+      }
+   }
+}
+
+a.notification{
+   display: flex;
+}
+.notification_new{
+   border-radius: 100%;
+   width: 22px;
+   height: 22px;
+   background: #dc8124;
+   color: #fff;
+   display: block;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 14px;
+   margin-left: 5px;
+   margin-top: 1px;
+   letter-spacing: 1px;
+   font-weight: 600;
+   box-shadow: 0 0 2px 2px rgba(0,0,0,.2);
+   span{
+      position: relative;
+      top: -1px;
+   }
+}
+
+.alert.alert-success{
+   background: #ddffd6;
+}
+.btn.btn-success{
+   background: #fff;
+   border: 3px solid #5dc737;
+   border-radius: 1px;
+   color: #005aad;
+   &:hover{
+      background: #5dc737;
+      color: #fff;
+   }
+}
+
+table{
+   th{
+      background: #005aad;
+      color: #fff;
+   }
+}
+
+#ApplicationDetailModal .modal-body{
+
+}
+.lds-facebook {
+   position: relative;
+   width: 80px;
+   height: 80px;
+   margin: 0 auto;
+}
+.lds-facebook div {
+   display: inline-block;
+   position: absolute;
+   left: 8px;
+   width: 16px;
+   background: #005aad;
+   animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+   left: 8px;
+   animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+   left: 32px;
+   animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+   left: 56px;
+   animation-delay: 0;
+}
+@keyframes lds-facebook {
+   0% {
+      top: 8px;
+      height: 64px;
+   }
+   50%, 100% {
+      top: 24px;
+      height: 32px;
+   }
+}
+
+#toast-container{
+   z-index: 10000000!important;
+}
+
+
+.in-jurist .panel-group{
+   overflow: scroll;
+   height: 100%;
+}
+
+tr.alert.alert-success{
+   background-color: #d4edda!important;
+}
+
+
+.ibox-content {
+   background-color: #FFFFFF;
+   color: inherit;
+   padding: 15px 20px 20px 20px;
+   border-color: #E7EAEC;
+   border-image: none;
+   border-style: solid solid none;
+   border-width: 1px 0px;
+}
+
+.search_block{
+   .search-form {
+      margin-top: 10px;
+   }
+
+   .search-result h3 {
+      margin-bottom: 0;
+      color: #1E0FBE;
+   }
+
+   .search-result .search-link {
+      color: #006621;
+   }
+
+   .search-result p {
+      font-size: 12px;
+      margin-top: 5px;
+   }
+
+   .hr-line-dashed {
+      border-top: 1px dashed #cccccc;
+      color: #ffffff;
+      background-color: #ffffff;
+      height: 1px;
+      margin: 20px 0;
+   }
+
+   h2 {
+      font-size: 24px;
+      font-weight: 100;
+   }
+
+}
+
+
+.headers{
+   .search_form{
+      position: absolute;
+      top: 0;
+      right: 60px;
+      height: 100%;
+      width: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      box-shadow: 0 0 4px 2px rgba(0,0,0,.1);
+      overflow: hidden;
+      transition: .4s;
+      opacity: 0;
+      @media(max-width:992px){
+         display: none!important;
+      }
+      &.active{
+         transition: .4s;
+         opacity: 1;
+         max-width: 580px;
+         width: calc(100% + 500px);
+      }
+      form{
+         width: 100%;
+         height: 100%;
+         .input-group{
+            height: 100%;
+         }
+         input{
+            height: 100%;
+         }
+         button{
+            height: 100%;
+         }
+      }
+   }
+   .search_button{
+      position: relative;
+      padding: 14px 22px;
+   }
+   .search-cta{
+      .fa-times{
+         opacity: 0;
+         visibility: hidden;
+         display: none;
+      }
+      .fa-search{
+         opacity: 1;
+         visibility: visible;
+         display: block;
+      }
+      &.active{
+         .fa-search{
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+         }
+         .fa-times{
+            opacity: 1;
+            visibility: visible;
+            display: block;
+         }
+      }
+   }
+}
+
+.add-more-inputs{
+   .form-group{
+      margin: 0;
+   }
+}
+
+
+a#zayavka{
+   position: fixed;
+   top: 20px;
+   right: 20px;
+   background: #00000073;
+   display: none;
+}
