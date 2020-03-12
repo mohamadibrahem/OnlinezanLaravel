@@ -31,6 +31,7 @@
                   <td class="pt-3-half">{{$item->created_at}}</td>
                   @if(Auth::user()->role_id == 1)
                     <td>
+                       <a class="btn btn-primary btn-rounded btn-sm my-0" href="/admin/news/edit/page/{{$item->id}}"><Remove>Изменить</Remove></a><br><br>                      
                        <a class="btn btn-danger btn-rounded btn-sm my-0" href="/admin/news/delete/{{$item->id}}"><Remove>Удалить</Remove></a>
                     </td>
                   @endif

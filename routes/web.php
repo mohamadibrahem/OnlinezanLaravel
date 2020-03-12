@@ -33,6 +33,12 @@ Route::group(['middleware' => ['auth','admin']], function() {
 
    Route::get('/admin/services/', 'AdminController@services');
    Route::get('/admin/services/edit/{service}', 'AdminController@services_edit')->name('admin_service_edit');
+   Route::get('/admin/services/add/page/', 'AdminController@services_add_page')->name('admin_service_add_page');   
+
+   Route::post('/admin/services/create/', 'AdminController@service_create'); 
+
+   Route::get('/admin/services/delete/{service}', 'AdminController@services_delete')->name('admin_service_delete');
+
    Route::post('/admin/services/store/{service}', 'AdminController@services_store')->name('admin_service_store');
 
    Route::get('/admin/users/', 'AdminController@user');
@@ -43,6 +49,9 @@ Route::group(['middleware' => ['auth','admin']], function() {
    Route::get('/admin/news/create_page', 'AdminController@news_create_page');
    Route::post('/admin/news/store', 'AdminController@news_store')->name('admin_news_store');
    Route::get('/admin/news/delete/{id}', 'AdminController@news_delete');
+   Route::get('/admin/news/edit/page/{id}', 'AdminController@news_edit_page');
+   Route::post('/admin/news/edit/{id}', 'AdminController@news_edit');  
+
 
    Route::get('/admin/contracts/', 'AdminController@contracts');
    Route::get('/admin/contracts/create_page', 'AdminController@contracts_create_page');
@@ -87,14 +96,21 @@ Route::group(['middleware' => ['auth','admin']], function() {
    // Route::get('/admin/dashboard/', 'AdminController@dashboard');
    Route::get('/admin/profile/', 'AdminController@profile');
    Route::get('/admin/clients/', 'AdminController@clients');
+   Route::get('/admin/clients/delete/{client}', 'AdminController@delete_client');
+
+
    Route::get('/admin/consultations/urgent', 'AdminController@consultation_urgent');
+
+   Route::get('/admin/consultations/urgent/delete/{id}', 'AdminController@consultation_urgent_delete');
+
    Route::get('/admin/consultations/urgent/conclusion/{consultation}', 'AdminController@consultation_urgent_conclusion')->name('admin_urgent_conclusion');
+
    Route::get('/admin/consultations/application/conclusion/{consultation}', 'AdminController@consultation_application_conclusion')->name('admin_application_conclusion');
 
-
-
    Route::get('/admin/consultations/online', 'AdminController@consultation_online');
+
    Route::get('/admin/consultations/application', 'AdminController@consultation_application');
+
    Route::get('/admin/consultations/application/lawyer/edit/{consultation}', 'AdminController@application_lawyer_edit')->name('application_lawyer_edit');
    Route::post('/admin/consultations/application/lawyer/store/{consultation}', 'AdminController@application_lawyer_store')->name('application_lawyer_store');
    Route::get('/admin/consultations/application/comment/{consultation}', 'AdminController@application_comment')->name('application_comment');
@@ -133,30 +149,30 @@ Route::group(['middleware' => ['auth','admin']], function() {
 
 Route::get('/test', function () {
    return view('inner_page.test');
-});
+});#
 
 Route::get('/', function () {
    return view('main_page.index');
-});
+});#
 
 
 Route::get('/contact', function () {
    return view('inner_page.contact');
-});
+});#
 
 Route::get('/information/for_clients', function () {
    return view('inner_page.information.for_clients');
-});
+});#
 
 Route::get('/information/for_lawyers', function () {
    return view('inner_page.information.for_lawyers');
-});
+});#
 
 Route::get('/information/service', function () {
    return view('inner_page.information.service');
-});
+});#
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');#
 
 Route::get('/chat/{id}', 'HomeController@chat')->name('chat');
 Route::get('/group/chat/{id}', 'HomeController@groupChat')->name('group.chat');
@@ -210,11 +226,11 @@ Route::post('/urgent_consultations/success/{consultation}', 'UrgentConsultationC
 Route::post('/urgent_consultations/conclusion_post/{consultation}', 'UrgentConsultationController@conclusion_post')->name('consultation_conclusion_post');
 Route::get('/urgent_consultations/conclusion_get/{consultation}', 'UrgentConsultationController@conclusion_get')->name('consultation_conclusion_get');
 
-Route::resource('/applications', 'ApplicationConsultationController');
+Route::resource('/applications', 'ApplicationConsultationController');#
 Route::post('/applications/update/{id}', 'ApplicationConsultationController@application_update')->name('application_update');
 Route::get('/applications/detail/{id}', 'ApplicationConsultationController@application_detail')->name('application_detail');
 
-Route::get('/applications/description/{consultation}', 'ApplicationConsultationController@description')->name('application_description');
+Route::get('/applications/description/{consultation}', 'ApplicationConsultationController@description')->name('application_description');#
 
 Route::post('/applications/conclusion_post/{consultation}', 'ApplicationConsultationController@conclusion_post')->name('application_conclusion_post');
 Route::get('/applications/conclusion_get/{consultation}', 'ApplicationConsultationController@conclusion_get')->name('application_conclusion_get');
@@ -241,15 +257,15 @@ Route::get('/datetime_timer', 'TimerController@datetime_timer')->name('datetime_
 
 Auth::routes();
 
-Route::resource('/news', 'NewsController');
-Route::resource('/contracts', 'ContractsController');
-Route::post('/contracts/download/{contract}', 'ContractsController@download')->name('download_contract');
+Route::resource('/news', 'NewsController');#
+Route::resource('/contracts', 'ContractsController');#
+Route::post('/contracts/download/{contract}', 'ContractsController@download')->name('download_contract');#
 
-Route::resource('/lawyers', 'LawyerController');
-Route::resource('/services', 'ServiceController');
+Route::resource('/lawyers', 'LawyerController');#
+Route::resource('/services', 'ServiceController');#
 Route::resource('/my_clients', 'ClientController');
 
-Route::get('/search_get', 'SearchController@search')->name('search_get');
+Route::get('/search_get', 'SearchController@search')->name('search_get');#
 
 Route::get('/redis', 'ConsultationNotificationController@showProfile');
 

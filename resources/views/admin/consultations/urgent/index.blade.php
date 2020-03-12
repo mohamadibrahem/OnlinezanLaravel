@@ -62,18 +62,14 @@
                         @if($item->conclusion != '')
                            <a class="btn btn-primary p-2" href="{{route('admin_urgent_conclusion', $item->id)}}">Открыть</a>
                         @endif
+
+                     <br>
+                     <br>  
+
+                     <a href="/admin/consultations/urgent/delete/{{$item->id}}" class="btn btn-danger p-2">Удалить</a>
                      </td>
 
                      <td class="pt-3-half">@if($item->status == 'new') В обработке @elseif($item->status == 'cancelled') Отменен @elseif($item->status == 'success') Исполнено @else В исполнении @endif</td>
-
-
-                        {{-- @if(Auth::user()->role_id == 1)
-                        <td>
-                        <span class="table-remove">
-                        <button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Изменить</button>
-                     </span>
-                  </td>
-               @endif --}}
 
             </tr>
          @endforeach

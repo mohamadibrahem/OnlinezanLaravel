@@ -19,7 +19,9 @@ class SearchController extends Controller
    {
 
       $news = News::all();
+      #dd($news);
       $services = Service::all();
+      #dd($services);
       $contracts = Contracts::all();
       $lawyers = Lawyer::where('status', 'accepted')->where('specialization_id', '!=', null)->get();
       $array1 = [];

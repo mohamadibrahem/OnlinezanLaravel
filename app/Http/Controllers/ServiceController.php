@@ -27,7 +27,7 @@ class ServiceController extends Controller
    */
    public function create()
    {
-      //
+      #ddd
    }
 
    /**
@@ -51,8 +51,13 @@ class ServiceController extends Controller
    {
       $questions = Question::where('service_id', $service->id)->get();
       $specializations = Service::all();
+      #dd($specializations);
+      #dd($questions);
 
       $lawyers = Lawyer::where('status', 'accepted')->get();
+
+      #dd($lawyers);
+
       $lawyerss = [];
       foreach ($lawyers as $lawyer) {
          if(json_decode($lawyer->specialization_id) !=null){
@@ -72,6 +77,8 @@ class ServiceController extends Controller
          'questions' => $questions,
          'specializations' => $specializations,
       ];
+
+      #dd($data);
 
       return view('inner_page.services.show', compact('data'));
    }

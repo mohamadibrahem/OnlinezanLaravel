@@ -8,6 +8,7 @@ use App\Experience;
 use App\Education;
 use Auth;
 use App\Schedule;
+use App\ConsultationNotification;
 
 use Illuminate\Http\Request;
 
@@ -26,6 +27,8 @@ class LawyerController extends Controller
          'lawyers' => $lawyers,
          'specializations' => $specializations,
       ];
+
+      #dd($data);
 
       return view('inner_page.lawyers.index', compact('data'));
    }
@@ -61,6 +64,8 @@ class LawyerController extends Controller
    public function info(Lawyer $lawyer, Request $request)
    {
       $lawyer_id = request()->lawyer_id;
+
+
       $lawyer = Lawyer::where('status', 'accepted')->where('specialization_id', '!=', null)->where('id', $lawyer_id)->get()['0'];
       $lawyer_fullname = $lawyer->user['lastname'].' '.$lawyer->user['firstname'];
       $lawyer_price = $lawyer->urgent_consultation_price;
@@ -91,7 +96,15 @@ class LawyerController extends Controller
 
    public function show(Lawyer $lawyer)
    {
+   
       $experiences = Experience::where('lawyer_id', $lawyer->id)->get();
+
+      $online_consultation = ConsultationNotification::where('lawyer_id', $lawyer->id)->where('type', 'online')->get();
+      $urgent_consultation = ConsultationNotification::where('lawyer_id', $lawyer->id)->where('type', 'urgent')->get();      
+
+      $online_consultation = count($online_consultation);
+      $urgent_consultation = count($urgent_consultation);
+
       $education = Education::where('lawyer_id', $lawyer->id)->get();
       $specializations = Service::all();
       // $lawyer = $lawyer->where('status', 'accepted')->get();
@@ -102,7 +115,7 @@ class LawyerController extends Controller
          'specializations' => $specializations,
       ];
 
-      return view('inner_page.lawyers.show', compact('data'));
+      return view('inner_page.lawyers.show', compact('data', 'online_consultation', 'urgent_consultation'));
    }
 
    /**

@@ -217,13 +217,7 @@
         </a>
       @endif --}}
 
-      <br>
 
-      @if(Auth::user()->role_id == 1)
-        <a href="#" class="list-group-item list-group-item-action waves-effect @if(request()->path() == 'admin/specializations') {{'active'}} @endif">
-         Вид деятельности
-        </a>
-      @endif
 
       @if(Auth::user()->role_id == 1)
         <a href="/admin/lawyers_specializations" class="list-group-item list-group-item-action waves-effect @if(request()->path() == 'admin/specializations') {{'active'}} @endif">

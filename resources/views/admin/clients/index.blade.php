@@ -21,6 +21,7 @@
                 {{-- @if(Auth::user()->role_id == 1)
                   <th class="text-center">Изменить</th>
                 @endif --}}
+                <th class="text-center">Удалить</th>
               </tr>
             </thead>
             <tbody>
@@ -45,6 +46,12 @@
                       </span>
                     </td>
                   @endif --}}
+
+                    <td>
+                      <span class="table-remove">
+                        <a href="/admin/clients/delete/{{$client->id}}" class="btn btn-danger btn-rounded btn-sm my-0">Удалить</a>
+                      </span>
+                    </td>                  
 
                 </tr>
               @endforeach

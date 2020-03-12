@@ -42,8 +42,31 @@ class AdminController extends Controller
       $services = Service::all();
       return view('admin.services.index', compact('services'));
    }
+
    public function services_edit(Service $service){
       return view('admin.services.edit', compact('service'));
+   }
+
+   public function services_delete($service){
+      $service = Service::find($service);
+      $service->delete($service->id);
+      return redirect()->back()->with(['messages' => 'Успешно удалено!']);     
+   }   
+
+   public function services_add_page()
+   {
+      return view('admin.services.add_page');
+   }
+
+   public function service_create()
+   {
+      Service::create([
+         'name' => request('name'),
+         'description' => request('service-trixFields')['description'],
+      ]);
+
+      return redirect()->back()->with(['messages' => 'Успешно добавлено!']);
+
    }
 
    public function services_store(Request $request, Service $service){
@@ -99,9 +122,30 @@ class AdminController extends Controller
 
       return redirect('/admin/news')->with(['messages' => 'Успешно добавлено!']);
    }
+
    public function news_delete($id){
       $news = News::find($id);
       $news->delete($news->id);
+      return redirect()->back();
+   }
+
+
+   public function news_edit_page(News $id){
+        $news = News::where('id', '=', $id->id)->first();
+
+        return view('/admin/news/edit', compact('news'));
+   }
+
+
+   public function news_edit(News $id){
+
+      $id->update([
+         'title' => request('title'),
+         'text' => request('text'),
+      ]);
+
+      session()->flash('messages', 'Новость обновлена!'); 
+
       return redirect()->back();
    }
 
@@ -475,6 +519,8 @@ class AdminController extends Controller
    //    $doctor->save();
    //    return back();
    // }
+
+   #gggg
    public function lawyer_delete($id){
       $lawyer = Lawyer::find($id);
       $experiences = Experience::all();
@@ -516,6 +562,14 @@ class AdminController extends Controller
       $clients = Client::all();
       return view('admin.clients.index', compact('clients'));
    }
+
+   public function delete_client($id)
+   {
+      $client = Client::find($id);
+      $client->delete($client->id);
+      return back()->with(['messages' => 'Успешно удалено!']);   
+   }
+
    //
    // //CONSULTATIONS
    public function consultation_urgent(){
@@ -523,6 +577,27 @@ class AdminController extends Controller
       $consultations = $consultations::orderBy('created_at', 'desc')->paginate(20);
       return view('admin.consultations.urgent.index', compact('consultations'));
    }
+
+
+
+   public function consultation_urgent_delete($id){
+
+      $consultation = UrgentConsultation::find($id);
+      $consultation->delete($consultation->client_phone);
+
+      $phone = UrgentConsultation::where('client_phone', $consultation->client_phone)->get(); 
+      #If in the UrgentConsultation table the client number is less than one, we’ll delete the data in the clients and users table like UrgentConsultation client number
+      if(count($phone) < 1) {
+
+      User::where('phone', $consultation->client_phone)->delete(); 
+      Client::where('id', $consultation->client_id)->delete();
+
+      }
+
+      session()->flash('messages', 'Срочная консультация удалена!');       
+      return redirect()->back();
+   }
+
 
    public function consultation_urgent_conclusion($consultation){
       $consultations = UrgentConsultation::find($consultation);
@@ -541,6 +616,7 @@ class AdminController extends Controller
       $appointments = $appointments::orderBy('datetime', 'desc')->paginate(20);
       return view('admin.consultations.online.index', compact('appointments', 'now_time'));
    }
+
    public function consultation_application(){
       $now_time = Carbon::now();
       $receptions = new ApplicationConsultation();
@@ -599,7 +675,7 @@ class AdminController extends Controller
          'description' => $request->get('description'),
       ]);
 
-      return redirect()->back()->with(['messages' => 'Успешно добавлено!']);
+      return back()->with(['messages' => 'Успешно добавлено!']);
    }
 
 
@@ -607,7 +683,7 @@ class AdminController extends Controller
    {
       $specialization = LawyersSpecialization::find($id);
       $specialization->delete($specialization->id);
-      return redirect()->back()->with(['messages' => 'Успешно удалено!']);
+      return back()->with(['messages' => 'Успешно удалено!']);
    }
 
    public function update_specialization_page(LawyersSpecialization $id)
@@ -624,7 +700,7 @@ class AdminController extends Controller
          'description' => request('description'),         
       ]);
 
-      return redirect()->back()->with(['messages' => 'Успешно обновлено!']);
+      return back()->with(['messages' => 'Успешно обновлено!']);
    }
 
 

@@ -3,7 +3,6 @@
    @section('title')
       {{"Отрасль"}}
    @endsection
-
    <div class="row">
       <div class="col">
 

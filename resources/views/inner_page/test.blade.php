@@ -206,15 +206,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
       var з     = new webkitSpeechRecognition(),
       voice     = "";
       chance = 0;

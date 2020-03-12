@@ -159,12 +159,12 @@
          <div class="container">
             <div class="row">
                <div class="col-md-4 col-12 text-center">
-                  <div class="counter" data-count="150">0</div>
-                  <h4>some text</h4>
+                  <div class="counter" data-count="{{$online_consultation}}"></div>
+                  <h4>провел онлайн консультации</h4>
                </div>
                <div class="col-md-4 col-12 text-center">
-                  <div class="counter" data-count="150">0</div>
-                  <h4>some text</h4>
+                  <div class="counter" data-count="{{$urgent_consultation}}"></div>
+                  <h4>провел срочных консультации</h4>
                </div>
                <div class="col-md-4 col-12 text-center">
                   <div class="counter" data-count="150">0</div>

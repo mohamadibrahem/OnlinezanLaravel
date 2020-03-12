@@ -61,20 +61,10 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
             <input type="file" name="application_file[]" class="dl-file" multiple>
             
-            <input type="submit" value="отправить" class="my-btn-form" id="start">
+            <input type="submit" value="отправить" class="my-btn-form">
 
          </form>
-   </div>
-  
-      <div id="show_form" style="display:none">
-
-        </div>
-
-         <form style="display: flex; flex-direction: column;width: 80%;" action="{{route('pay')}}" method="post">
-@csrf
-             <button type="submit">Оплатить 100 р.</button>
-         </form>
-
+      </div>
    </div>
 </div>
 </div>
